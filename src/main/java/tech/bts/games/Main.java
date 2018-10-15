@@ -1,6 +1,7 @@
 package tech.bts.games;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Main {
@@ -21,6 +22,33 @@ public class Main {
         System.out.println(game.getName() + ", " + game.getNumPlayers() + " players"
         + ", " + game.getPrice() + " € ");
     }
+
+    int columnWidth = 10;
+
+    List<String> fieldNames = Arrays.asList("Name","Players","Price");
+
+    String title = "";
+
+    for (String fieldName : fieldNames) {
+        title += StringUtil.padRight(fieldName,columnWidth);
+    }
+
+    String line = StringUtil.repeat("-",columnWidth * fieldNames.size());
+
+    System.out.println(title);
+    System.out.println(line);
+
+        for (Game game : games) {
+            String gametLine = StringUtil.padRight(game.getName(),columnWidth)
+                    + StringUtil.padRight("" + game.getNumPlayers(),columnWidth)
+                    + StringUtil.padRight("" + game.getPrice(),columnWidth);
+
+            System.out.println(gametLine);
+        }
+
+        System.out.println(line);
+
+
 
 
 
